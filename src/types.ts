@@ -186,6 +186,12 @@ export interface WebAPITimetable {
     periodInfo: string;
     periodAttachments: [];
     substText: string;
+    exam?: {
+        markSchemaId: number;
+        name: string;
+        id: number;
+        date: number;
+    };
     date: number;
     startTime: number;
     endTime: number;
@@ -193,7 +199,7 @@ export interface WebAPITimetable {
     studentGroup: string;
     hasInfo: boolean;
     code: number;
-    cellState: 'STANDARD' | 'SUBSTITUTION' | 'ROOMSUBSTITUTION' | 'ADDITIONAL' | 'CANCEL';
+    cellState: 'STANDARD' | 'SUBSTITUTION' | 'ROOMSUBSTITUTION' | 'ADDITIONAL' | 'EXAM' | 'CANCEL';
     priority: number;
     is: {
         cancelled?: boolean;
@@ -201,11 +207,13 @@ export interface WebAPITimetable {
         substitution?: boolean;
         shift?: boolean;
         additional?: boolean;
+        exam?: boolean;
         standard?: boolean;
         event: boolean;
     };
     roomCapacity: number;
     studentCount: number;
+    debugInfo: string;
     classes: WebElementData[];
     teachers: WebElementData[];
     subjects: WebElementData[];
