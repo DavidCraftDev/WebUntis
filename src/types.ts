@@ -167,8 +167,10 @@ export interface WebElementData extends WebElement {
         longName?: string;
         displayname?: string;
         alternatename?: string;
+        foreColor?: string;
+        backColor?: string;
         canViewTimetable: boolean;
-        externalKey?: string;
+        externKey?: string;
         roomCapacity: number;
     };
 }
@@ -180,7 +182,7 @@ export interface WebAPITimetable {
     lessonCode: string;
     lessonText: string;
     periodText: string;
-    hasPeriodText: false;
+    hasPeriodText: boolean;
     periodInfo: string;
     periodAttachments: [];
     substText: string;
@@ -191,11 +193,14 @@ export interface WebAPITimetable {
     studentGroup: string;
     hasInfo: boolean;
     code: number;
-    cellState: 'STANDARD' | 'SUBSTITUTION' | 'ROOMSUBSTITUTION';
+    cellState: 'STANDARD' | 'SUBSTITUTION' | 'ROOMSUBSTITUTION' | 'ADDITIONAL' | 'CANCEL';
     priority: number;
     is: {
+        cancelled?: boolean;
         roomSubstitution?: boolean;
         substitution?: boolean;
+        shift?: boolean;
+        additional?: boolean;
         standard?: boolean;
         event: boolean;
     };
