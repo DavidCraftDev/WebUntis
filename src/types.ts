@@ -196,7 +196,7 @@ export interface WebAPITimetable {
     startTime: number;
     endTime: number;
     elements: WebElement[];
-    studentGroup: string;
+    studentGroup?: string;
     hasInfo: boolean;
     code: number;
     cellState: 'STANDARD' | 'SUBSTITUTION' | 'ROOMSUBSTITUTION' | 'ADDITIONAL' | 'EXAM' | 'CANCEL';
