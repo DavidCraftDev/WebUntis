@@ -213,7 +213,7 @@ export interface WebAPITimetable {
     };
     roomCapacity: number;
     studentCount: number;
-    debugInfo: string;
+    debugInfo?: string;
     classes: WebElementData[];
     teachers: WebElementData[];
     subjects: WebElementData[];
