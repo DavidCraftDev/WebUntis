@@ -158,8 +158,10 @@ interface WebElementData extends WebElement {
         longName?: string;
         displayname?: string;
         alternatename?: string;
+        foreColor?: string;
+        backColor?: string;
         canViewTimetable: boolean;
-        externalKey?: string;
+        externKey?: string;
         roomCapacity: number;
     };
 }
@@ -170,27 +172,38 @@ interface WebAPITimetable {
     lessonCode: string;
     lessonText: string;
     periodText: string;
-    hasPeriodText: false;
+    hasPeriodText: boolean;
     periodInfo: string;
     periodAttachments: [];
     substText: string;
+    exam?: {
+        markSchemaId: number;
+        name: string;
+        id: number;
+        date: number;
+    };
     date: number;
     startTime: number;
     endTime: number;
     elements: WebElement[];
-    studentGroup: string;
+    studentGroup?: string;
     hasInfo: boolean;
     code: number;
-    cellState: 'STANDARD' | 'SUBSTITUTION' | 'ROOMSUBSTITUTION';
+    cellState: 'STANDARD' | 'SUBSTITUTION' | 'ROOMSUBSTITUTION' | 'ADDITIONAL' | 'EXAM' | 'CANCEL';
     priority: number;
     is: {
+        cancelled?: boolean;
         roomSubstitution?: boolean;
         substitution?: boolean;
+        shift?: boolean;
+        additional?: boolean;
+        exam?: boolean;
         standard?: boolean;
         event: boolean;
     };
     roomCapacity: number;
     studentCount: number;
+    debugInfo?: string;
     classes: WebElementData[];
     teachers: WebElementData[];
     subjects: WebElementData[];
